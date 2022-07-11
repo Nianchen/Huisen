@@ -1,0 +1,592 @@
+@import './variables.scss';
+@import './mixin.scss';
+@import './transition.scss';
+@import './element-ui.scss';
+@import './sidebar.scss';
+@import './btn.scss';
+body {
+    height: 100%;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Arial, sans-serif;
+}
+
+label {
+    font-weight: 700;
+}
+
+html {
+    height: 100%;
+    box-sizing: border-box;
+}
+
+#app {
+    height: 100%;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+.no-padding {
+    padding: 0px !important;
+}
+
+.padding-content {
+    padding: 4px 0;
+}
+
+a:focus,
+a:active {
+    outline: none;
+}
+
+a,
+a:focus,
+a:hover {
+    cursor: pointer;
+    color: inherit;
+    text-decoration: none;
+}
+
+div:focus {
+    outline: none;
+}
+
+.fr {
+    float: right;
+}
+
+.fl {
+    float: left;
+}
+
+.pr-5 {
+    padding-right: 5px;
+}
+
+.pl-5 {
+    padding-left: 5px;
+}
+
+.block {
+    display: block;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.inlineBlock {
+    display: block;
+}
+
+.clearfix {
+    &:after {
+        visibility: hidden;
+        display: block;
+        font-size: 0;
+        content: " ";
+        clear: both;
+        height: 0;
+    }
+}
+
+aside {
+    background: #eef1f6;
+    padding: 8px 24px;
+    margin-bottom: 20px;
+    border-radius: 2px;
+    display: block;
+    line-height: 32px;
+    font-size: 16px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    color: #2c3e50;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    a {
+        color: #337ab7;
+        cursor: pointer;
+        &:hover {
+            color: rgb(32, 160, 255);
+        }
+    }
+}
+
+//main-container全局样式
+.app-container {
+    padding: 20px;
+}
+
+.components-container {
+    margin: 30px 50px;
+    position: relative;
+}
+
+.pagination-container {
+    margin-top: 30px;
+}
+
+.text-center {
+    text-align: center
+}
+
+.sub-navbar {
+    height: 50px;
+    line-height: 50px;
+    position: relative;
+    width: 100%;
+    text-align: right;
+    padding-right: 20px;
+    transition: 600ms ease position;
+    background: linear-gradient(90deg, rgba(32, 182, 249, 1) 0%, rgba(32, 182, 249, 1) 0%, rgba(33, 120, 241, 1) 100%, rgba(33, 120, 241, 1) 100%);
+    .subtitle {
+        font-size: 20px;
+        color: #fff;
+    }
+    &.draft {
+        background: #d0d0d0;
+    }
+    &.deleted {
+        background: #d0d0d0;
+    }
+}
+
+.link-type,
+.link-type:focus {
+    color: #337ab7;
+    cursor: pointer;
+    &:hover {
+        color: rgb(32, 160, 255);
+    }
+}
+
+.filter-container {
+    padding-bottom: 10px;
+    .filter-item {
+        display: inline-block;
+        vertical-align: middle;
+        margin-bottom: 10px;
+    }
+}
+
+//refine vue-multiselect plugin
+.multiselect {
+    line-height: 16px;
+}
+
+.multiselect--active {
+    z-index: 1000 !important;
+}
+
+.el-input--medium .el-input__inner {
+    background-color: transparent;
+    // border: 1px solid #0073ff;
+    // color: #fff;
+}
+
+::v-deep .table-list,
+::v-deep .tablelist,
+.tablebox {
+    //.el-table td {
+    //  background: #04579a;
+    //}
+    .el-table__body tr.current-row>td {
+        background-color: #1c84c6 !important;
+        /* color: #f19944; */
+        /* 设置文字颜色，可以选择不设置 */
+    }
+    .el-table--enable-row-hover .el-table__body tr:hover>td {
+        background-color: #1c84c6;
+        /* color: #f19944; */
+        /* 设置文字颜色，可以选择不设置 */
+    }
+    .el-pager li.btn-quicknext,
+    .el-pager li.btn-quickprev {
+        background-color: #04579a;
+        color: white;
+    }
+    .el-table tr {
+        background-color: #03223f;
+    }
+    .el-table td {
+        border-bottom: 1px solid #018397;
+    }
+    .el-input__inner {
+        background: none;
+        border: 1px solid #018397;
+        outline: none;
+        color: white;
+    }
+    .el-pager,
+    // .number {
+    //     background: #04579a;
+    // }
+    .btn-prev,
+    .btn-next {
+        background: none;
+        outline: none;
+        // border: 1px solid #018397;
+        color: white;
+        &:disabled {
+            background: none;
+            outline: none;
+            border: 1px solid #018397;
+            color: white;
+        }
+    }
+    .el-pagination__jump,
+    .el-pagination__total,
+    .el-form-item__label {
+        color: white;
+    }
+    .has-gutter .is-leaf {
+        background: #03223f;
+        border-bottom: 1px solid #018397;
+        color: white;
+    }
+    .el-table {
+        background: #03223f;
+        border: 1px solid #018397;
+        &::before {
+            background: none;
+        }
+    }
+    .el-table__empty-text {
+        color: white;
+    }
+    .el-button {
+        //background: none;
+        outline: none;
+        //border: none;
+        // background-color:#018397 ;
+        // border: 1px solid #018397;
+        color: white;
+        &:hover {
+            color: #018397;
+        }
+    }
+    .el-table__expanded-cell {
+        background-color: #03223f;
+    }
+    .el-table tr {
+        background: transparent;
+        color: white;
+    }
+    .el-table tr:nth-child(odd) {
+        background-color: #0e395e;
+    }
+    .el-table tr:nth-child(even) {
+        background-color: #03223f;
+    }
+    .el-table tr:hover {
+        background-color: #0e66ae;
+    }
+    .el-table--striped .el-table__body tr.el-table__row--striped td {
+        background: none;
+    }
+}
+
+// .el-form-item__label {
+//   color: #fff !important;
+// }
+.el-timeline-item__content {
+    color: #fff;
+}
+
+::v-deep .el-scrollbar {
+    background-color: #009DD1;
+}
+
+::v-deep .el-cascader-panel {
+    background-color: #0073ff;
+}
+
+.group {
+     ::v-deep .el-dialog {
+        background-color: rgba(0, 0, 0, 0);
+    }
+    .el-progress-bar__outer {
+        background-color: transparent;
+        border: 1px solid white;
+    }
+}
+
+.group .el-dialog__headerbtn {
+    top: 14%;
+    //left: 102%;
+    position: absolute;
+    font-size: 32px;
+}
+.el-dialog__wrapper{
+    background-color:rgba(0,0,0,0.6);
+}
+
+.tree-list {
+    .el-loading-mask {
+        background-color: rgba(0, 0, 0, 0.3) !important;
+    }
+    .el-tree-node:focus>.el-tree-node__content {
+        background-color: #66b1ff87 !important;
+    }
+    .el-tree-node__content:hover {
+        background-color: #66b1ff87;
+    }
+    .el-tree-node.is-current>.el-tree-node__content {
+        background-color: #66b1ff87;
+    }
+}
+
+.camera-tree-list {
+    .el-checkbox__inner {
+        background-color: transparent;
+        border-color: #00cfff;
+    }
+    .el-tree .el-tree-node .is-leaf+.el-checkbox .el-checkbox__inner {
+        display: inline-block;
+    }
+    .el-tree .el-tree-node .el-checkbox .el-checkbox__inner {
+        display: none;
+    }
+}
+
+::v-deep .dialogbox {
+    .el-input__inner {
+        background-color: transparent;
+        border: 1px solid #014391;
+        color: #fff;
+        // margin-left: 4vw;
+    }
+    .el-form-item__label {
+        // color: #0082EC;
+        font-size: 1.3em;
+        left: 1vh;
+        // margin-left: 0.5vw;
+    }
+    .el-button {
+        color: #eef1f6;
+        background-color: transparent;
+        border: none;
+        // margin-left: 4vw;
+    }
+    .el-range-editor .el-range-input {
+        background-color: #031E35;
+        color: white;
+    }
+    .el-input--medium {
+        font-size: 16px;
+    }
+    .el-checkbox-group {
+        font-size: 30px;
+    }
+    .el-checkbox__label {
+        font-size: 14px;
+    }
+    .el-radio__label {
+        font-size: 16px;
+        color: #FFF;
+    }
+    .el-select-dropdown,
+    .el-popper {
+        border: none;
+        background-color: #083d6d;
+    }
+    .el-select-dropdown__item.hover,
+    .el-select-dropdown__item:hover {
+        background-color: #388bc4;
+        ;
+    }
+    .el-select-dropdown__item {
+        color: white !important;
+    }
+}
+
+.time-select-item {
+    font-size: 19px;
+    line-height: 20px;
+    color: aliceblue;
+}
+
+.time-select-item:hover {
+    background-color: skyblue;
+}
+
+.search {
+    .el-select .el-input__inner {
+        background-color: #05335B;
+        border: 2px solid #04579A;
+    }
+}
+
+.el-notification {
+    border: 1px solid #ff0000;
+    cursor: pointer;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, .3);
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#ff0000), to(#ff0000));
+    -webkit-animation-timing-function: ease-in-out;
+    -webkit-animation-name: breathe;
+    -webkit-animation-duration: 700ms;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-direction: alternate;
+    .el-notification__group .el-notification__title,
+    .el-notification__group .el-notification__content,
+    .el-notification__group .el-notification__closeBtn {
+        color: white !important;
+    }
+}
+
+@-webkit-keyframes breathe {
+    0% {
+        opacity: .5;
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    }
+    100% {
+        opacity: 1;
+        border: 1px solid rgb(255, 0, 0);
+        box-shadow: 0 0 60px rgb(255, 0, 0);
+    }
+}
+
+.dialog-table-box {
+    .el-row {
+        margin-bottom: 0.2vh;
+    }
+    .el-input__inner,
+    .el-textarea__inner {
+        background: none;
+        border: 1px solid #018397;
+        outline: none;
+        color: white;
+    }
+    .el-form-item__label {
+        color: #0e66ae;
+    }
+    .arrow {
+        //font-size: 0;
+        span {
+            display: inline-block;
+        }
+        .el-textarea__inner::-webkit-scrollbar {
+            display: none;
+            /* Chrome Safari */
+        }
+        span::before,
+        span::after {
+            content: '';
+            display: block;
+            background-color: #0e66ae;
+            width: 12px;
+            height: 4px;
+        }
+        span::before {
+            transform: rotate(45deg) translateY(-3px) skew(-45deg);
+        }
+        span::after {
+            transform: rotate(-45deg) translateY(3px) skew(45deg);
+        }
+    }
+    .el-textarea__inner {
+        scrollbar-width: none;
+        /* firefox */
+        -ms-overflow-style: none;
+        /* IE 10+ */
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+    .arrow {
+        //font-size: 0;
+        span {
+            display: inline-block;
+        }
+        span::before,
+        span::after {
+            content: '';
+            display: block;
+            background-color: #0e66ae;
+            width: 12px;
+            height: 4px;
+        }
+        span::before {
+            transform: rotate(45deg) translateY(-3px) skew(-45deg);
+        }
+        span::after {
+            transform: rotate(-45deg) translateY(3px) skew(45deg);
+        }
+    }
+    .dialog-table-title {
+        display: flex;
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #016ac1;
+        margin-bottom: 20px;
+        div {
+            margin-right: 20px;
+        }
+    }
+}
+
+// 修改加减框两边颜色
+::v-deep .el-input-number__increase,
+::v-deep .el-input-number__decrease {
+    background-color: #009DD1;
+}
+
+//修改输入框颜色
+::v-deep .el-input--medium,
+::v-deep .el-input__inner {
+    background-color: transparent;
+    color: aliceblue;
+}
+
+::v-deep .el-input__inner {
+    border: 2px solid #0082EC;
+}
+
+// 修改广播音乐时多选下拉框选中背景色
+.el-select-dropdown.is-multiple .el-select-dropdown__item.selected.hover,
+.el-select-dropdown.is-multiple .el-select-dropdown__item.selected {
+    background-color: #388bc4;
+}
+
+::v-deep .el-tag.el-tag--info {
+    color: #FFF !important;
+}
+
+.ic-map {
+    .my-map-popup {
+        //background-color: #2082d7;
+        background-color: rgba(34, 140, 236, .3);
+        color: white;
+        .my-map-popup__title {
+            background-color: rgba(34, 140, 236, .5);
+            color: white;
+        }
+    }
+}
+
+// 富文本编辑器
+::v-deep .el-iocn-minus:before {
+    color: #fff;
+}
+
+::v-dee .el-iocn-plus:before {
+    color: #fff;
+}
+
+::v-deep .el-checkbox__label {
+    color: #fff;
+} 
+::v-deep .el-tree-node__expand-icon{
+    font-size: 20px;
+
+}
+
+// ::v-deep .el-button:hover{
+//     background-color: #032545 !important;
+// }
+
+
+// 修改注册灯杆下拉框颜色
