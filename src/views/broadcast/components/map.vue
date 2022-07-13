@@ -205,7 +205,7 @@ export default {
   components: {MyMap,MyMapMarker,Dialog},
   data() {
     return {
-      center: [112.83464527966484, 32.651482978328715],
+      center: [111.564234,32.27757],
       centerImg: require('@/assets/images/marker/broadcast_icon.png'),
       dataList: [],
       // 查询参数
@@ -245,8 +245,14 @@ export default {
   methods: {
     /** 查询灯杆列表 */
     getList() {
-      getBCAllListData(this.queryParams).then((e) => {
-        this.dataList=e.data
+      getBCAllListData(this.queryParams).then((response) => {
+        this.dataList=response.data
+          response.data[0].basicPole.lat=111.564234
+        response.data[0].basicPole.lng=32.277575
+        response.data[1].basicPole.lat=111.565478
+        response.data[1].basicPole.lng=32.277588
+        response.data[2].basicPole.lat=111.566589
+        response.data[2].basicPole.lng=32.277647
         console.log(this.dataList);
       });
     },

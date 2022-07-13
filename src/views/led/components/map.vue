@@ -290,7 +290,7 @@ export default {
     getList() {
       ledAllList(this.queryParams).then((response) => {
         console.log(response);
-         response.data[0].basicPole.lat=111.564234
+        response.data[0].basicPole.lat=111.564234
         response.data[0].basicPole.lng=32.277575
         response.data[1].basicPole.lat=111.565478
         response.data[1].basicPole.lng=32.277588
